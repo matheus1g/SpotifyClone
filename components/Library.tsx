@@ -33,7 +33,7 @@ const Library = () => {
         </div>
         <AiOutlinePlus
           onClick={onClick}
-          Size={20}
+          size={20}
           className="
             text-neutral-400
             cursor-pointer
