@@ -6,13 +6,14 @@ import { Figtree } from 'next/font/google'
 import Sidebar from '@/components/Sidebar'
 import SupabaseProvider from '@/provider/SupabaseProvider'
 import UserProvider from '@/provider/UserProvider'
+import ModalProvider from '@/provider/ModalProvider'
 
 
 const font = Figtree({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Spotify Clone',
-  description: 'Listen to music!',
+  description: 'Listen to music!', 
 }
 
 export default function RootLayout({
@@ -25,9 +26,11 @@ export default function RootLayout({
       <body className={font.className}>
         <SupabaseProvider>
           <UserProvider>
-            <Sidebar>
-              {children}
-            </Sidebar>
+            <ModalProvider>
+              <Sidebar>
+                {children}
+              </Sidebar>
+            </ModalProvider>
           </UserProvider>
         </SupabaseProvider>
         </body>
