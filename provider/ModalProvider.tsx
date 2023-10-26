@@ -4,12 +4,8 @@ import { useEffect, useState } from "react";
 
 import AuthModal from "@/components/AuthModal";
 
-interface ModalProviderProps {
-  children: React.ReactNode
-}
 
-
-const ModalProvider:React.FC<ModalProviderProps> = ({children}) => {
+const ModalProvider= () => {
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
@@ -23,7 +19,6 @@ const ModalProvider:React.FC<ModalProviderProps> = ({children}) => {
   return ( 
     <>
       <AuthModal />
-      {children}
     </>
    );
 }
