@@ -1,5 +1,6 @@
 "use client"
 
+import LikeButton from "@/components/Like.Button";
 import MediaItem from "@/components/MediaItem";
 import { Song } from "@/types";
 
@@ -45,7 +46,7 @@ const SearchContent:React.FC<SearchContentProps> = ({songs}) => {
               data={song}
             />
           </div>
-          {/*TODO: add like button here*/}
+          <LikeButton songId={song.id}/>
         </div>
       ))}
     </div>
