@@ -23,7 +23,7 @@ const LikedContent: React.FC<LikedContentProps> = ({songs}) => {
     }
   },[isLoading, user, router])
 
-  if (songs.length ===0 ) {
+  if (songs.length === 0 ) {
     return (
       <div className="
         flex
