@@ -24,10 +24,16 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
 }) => {
   const player = usePlayer();
   const [volume, setVolume] = useState(1);
+  const [backUnmute, setBackUnmute] = useState(1)
   const [isPlaying, setIsPlaying] = useState(false);
 
   const Icon = isPlaying ? BsPauseFill : BsPlayFill;
   const VolumeIcon = volume === 0 ? HiSpeakerXMark : HiSpeakerWave;
+
+  const setVolumes = (value: number) => {
+    setBackUnmute(value),
+    setVolume(value)
+  }
 
   const onPlayNext = () => {
     if (player.ids.length === 0) {
@@ -92,7 +98,7 @@ const handlePlay = () => {
 
 const toggleMute = () => {
   if (volume === 0) {
-    setVolume(1)
+    setVolume(backUnmute)
   } else { 
     setVolume(0)
   }
@@ -197,7 +203,7 @@ const toggleMute = () => {
         />
         <Slider 
           value={volume}
-          onChange={(value) => setVolume(value)}
+          onChange={(value) => setVolumes(value)}
         />
       </div>
     </div>
